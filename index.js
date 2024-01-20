@@ -5,7 +5,7 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
 const connectDB = require('./config/dbConnect')
-const PORT = process.env.PORT || 3500
+const PORT = process.env.PORT
 
 // Connect to mongoDB
 connectDB()
