@@ -6,7 +6,7 @@ const crypto = require('crypto')
 const getAllProducts = async (req, res) => {
     const products = await Product.find()
     if (!products || products.length === 0) return res.sendStatus(204)
-    return res.status(200).json({ status: "success", data: products })
+    res.status(200).json({ status: "success", data: products })
 }
 
 const getProduct = async (req, res) => {
