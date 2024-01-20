@@ -11,7 +11,7 @@ const PORT = process.env.PORT
 connectDB()
 
 // Cross Origin Resource Sharing
-app.use(cors());
+app.use(cors('https://zealous-flannel-shirt-foal.cyclic.app/'));
 
 // built-in middleware to handle urlencoded form data
 app.use(express.urlencoded({ extended: false }));
