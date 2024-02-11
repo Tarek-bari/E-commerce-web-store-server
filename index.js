@@ -5,6 +5,7 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
 const connectDB = require('./config/dbConnect')
+const errorHandler = require('./middleware/errorHandler')
 const PORT = process.env.PORT
 
 // Connect to mongoDB
@@ -38,6 +39,7 @@ app.all('*', (req, res) => {
     res.status(404).json({ "error": "404 Not Found" })
 })
 
+app.use(errorHandler)
 
 mongoose.connection.once('open', () => {
     console.log('Connected to mongoDB')
