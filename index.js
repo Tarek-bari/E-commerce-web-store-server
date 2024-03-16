@@ -12,7 +12,7 @@ const PORT = process.env.PORT
 connectDB()
 
 // Cross Origin Resource Sharing
-app.use(cors('https://zealous-flannel-shirt-foal.cyclic.app/'));
+app.use(cors());
 
 // built-in middleware to handle urlencoded form data
 app.use(express.urlencoded({ extended: false }));
@@ -23,8 +23,11 @@ app.use(express.json());
 //middleware for cookies
 app.use(cookieParser());
 
-
 // routes
+app.get('/', (req, res) => {
+    res.json('Welcome ! Mohammed Bari web store')
+});
+
 app.use('/register', require('./routes/registerAdmin'));
 app.use('/login', require('./routes/login'))
 app.use('/refresh', require('./routes/refreshToken'))
@@ -33,7 +36,6 @@ app.use('/password', require('./routes/password'))
 app.use('/account', require('./routes/account'))
 app.use('/products', require('./routes/product'))
 app.use('/orders', require('./routes/order'))
-
 
 app.all('*', (req, res) => {
     res.status(404).json({ "error": "404 Not Found" })
