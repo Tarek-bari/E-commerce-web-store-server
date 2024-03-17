@@ -12,7 +12,7 @@ const PORT = process.env.PORT
 connectDB()
 
 // Cross Origin Resource Sharing
-app.use(cors());
+app.use(cors('https://e-commerce-web-store-server.onrender.com'));
 
 // built-in middleware to handle urlencoded form data
 app.use(express.urlencoded({ extended: false }));
