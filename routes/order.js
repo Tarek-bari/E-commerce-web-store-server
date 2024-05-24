@@ -12,7 +12,7 @@ router.route('/')
 
 
 // route for orders of specific product    
-router.route('/product/:product_id')
+router.route('/product')
     .get(verifyJwt, verifyRole, orderController.getOrdersOfProduct)
 
 

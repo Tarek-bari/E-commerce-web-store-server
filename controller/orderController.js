@@ -10,11 +10,12 @@ const getAllOrders = async (req, res) => {
     res.status(200).json({ status: 'success', data: orders })
 }
 
-// get orders of specific product
+
+// get spesific oredres for one product
 const getOrdersOfProduct = async (req, res) => {
-    if (!req?.params?.product_id) return res.status(400).json({ status: 'fail', data: { Message: 'product id required' } })
-    const orders = await Order.find({ productId: req.params.product_id })
-    if (!orders) return res.sendStatus(204)
+    if (!req?.query?.productId) return res.status(400).json({ status: 'fail', data: { Message: 'product id required' } })
+    const orders = await Order.find({ productId: req.query.productId })
+    if (orders.length === 0) return res.sendStatus(204)
     res.status(200).json({ status: 'success', data: orders })
 }
 
