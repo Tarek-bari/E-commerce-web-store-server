@@ -32,7 +32,7 @@ const handleLogin = async (req, res) => {
         await user.save()
 
         res.cookie('jwt', Refresh_Token, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 })
-        res.status(201).json({ status: 'success', data: { token: Token, user: user.username, id: user.id } })
+        res.status(201).json({ status: 'success', data: { role: user.isAdmin, token: Token, user: user.username, id: user.id } })
     } else {
         res.status(401).json({ status: 'fail', data: { Message: 'Make sure about you password' } })
     }
