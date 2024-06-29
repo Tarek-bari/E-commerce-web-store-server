@@ -20,7 +20,7 @@ const handleLogin = async (req, res) => {
                 "isAdmin": user.isAdmin
             },
             process.env.TOKEN_SECRET,
-            { expiresIn: '10m' }
+            { expiresIn: '2m' }
         )
         const Refresh_Token = jwt.sign(
             { "id": user.id },

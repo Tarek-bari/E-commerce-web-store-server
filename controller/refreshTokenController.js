@@ -20,7 +20,7 @@ const handleRefreshToken = async (req, res) => {
                     "isAdmin": decoded.isAdmin
                 },
                 process.env.TOKEN_SECRET,
-                { expiresIn: '10m' }
+                { expiresIn: '2m' }
             )
 
             res.json({ sataus: 'success', data: Token })
