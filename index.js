@@ -2,7 +2,9 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const corsOptions = require('./config/corsOptions')
 const cookieParser = require('cookie-parser')
+const credentials = require('./middleware/credentials')
 const mongoose = require('mongoose')
 const connectDB = require('./config/dbConnect')
 const errorHandler = require('./middleware/errorHandler')
@@ -11,8 +13,12 @@ const PORT = process.env.PORT
 // Connect to mongoDB
 connectDB()
 
+// Handle options credentials check - before CORS!
+// and fetch cookies credentials requirement
+app.use(credentials);
+
 // Cross Origin Resource Sharing
-app.use(cors('https://e-commerce-web-store-server.onrender.com'));
+app.use(cors(corsOptions));
 
 // built-in middleware to handle urlencoded form data
 app.use(express.urlencoded({ extended: false }));
