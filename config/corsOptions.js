@@ -1,4 +1,4 @@
-const whitelist = [process.env.DOMAIN]
+const whitelist = require('./whitelist')
 
 const corsOptions = {
     origin: (origin, callback) => {

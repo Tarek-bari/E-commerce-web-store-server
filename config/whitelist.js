@@ -1,0 +1,1 @@
+const whitelist = [process.env.DOMAIN, 'http://localhost:5173/']

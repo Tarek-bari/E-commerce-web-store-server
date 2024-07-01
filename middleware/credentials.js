@@ -1,5 +1,5 @@
 
-const whitelist = [process.env.DOMAIN]
+const whitelist = require('../config/whitelist')
 
 const credentials = (req, res, next) => {
     const origin = req.headers.origin;
